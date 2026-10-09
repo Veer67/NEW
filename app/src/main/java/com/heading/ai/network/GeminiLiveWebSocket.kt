@@ -16,7 +16,8 @@ class GeminiLiveWebSocket(
     private val model: String,
     private val voiceName: String,
     private val systemPrompt: String,
-    private val listener: Listener
+    private val listener: Listener,
+    private val useNativeAudio: Boolean = true
 ) {
     interface Listener {
         fun onConnectionStateChanged(status: String)
@@ -130,7 +131,7 @@ class GeminiLiveWebSocket(
         val setupPayload = SetupPayload(
             model = model,
             generationConfig = GenerationConfigPayload(
-                responseModalities = listOf("AUDIO"),
+                responseModalities = if (useNativeAudio) listOf("AUDIO") else listOf("TEXT"),
                 speechConfig = SpeechConfigPayload(
                     voiceConfig = VoiceConfigPayload(
                         prebuiltVoiceConfig = PrebuiltVoiceConfigPayload(voiceName = voiceName)

@@ -20,6 +20,11 @@
     <string name="api_key_hint">Paste your Gemini API key</string>
     <string name="model_label">AI Model</string>
     <string name="voice_label">Voice</string>
+    <string name="voice_provider_label">Voice Provider</string>
+    <string name="elevenlabs_key_label">ElevenLabs API Key (optional)</string>
+    <string name="elevenlabs_proxy_label">Secure Voice Proxy URL</string>
+    <string name="elevenlabs_voice_label">ElevenLabs Voice</string>
+    <string name="elevenlabs_setup_help">The proxy keeps your provider key off the APK. An optional local key is encrypted on this device.</string>
     <string name="personality_label">Personality</string>
     <string name="username_label">User Name</string>
     <string name="username_hint">e.g. Tony Stark, Sir, Boss (optional)</string>

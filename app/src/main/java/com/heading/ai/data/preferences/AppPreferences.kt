@@ -30,6 +30,10 @@ class AppPreferences(context: Context) {
         private const val KEY_API_KEY = "key_api_key"
         private const val KEY_MODEL = "key_model"
         private const val KEY_VOICE = "key_voice"
+        private const val KEY_VOICE_PROVIDER = "key_voice_provider"
+        private const val KEY_ELEVENLABS_API_KEY = "key_elevenlabs_api_key"
+        private const val KEY_ELEVENLABS_VOICE_ID = "key_elevenlabs_voice_id"
+        private const val KEY_ELEVENLABS_PROXY_URL = "key_elevenlabs_proxy_url"
         private const val KEY_PERSONALITY = "key_personality"
         private const val KEY_USER_NAME = "key_user_name"
         private const val KEY_MIC_MUTED = "key_mic_muted"
@@ -55,6 +59,23 @@ class AppPreferences(context: Context) {
     var voice: String
         get() = prefs.getString(KEY_VOICE, "Aoede") ?: "Aoede"
         set(value) = prefs.edit().putString(KEY_VOICE, value).apply()
+
+    var voiceProvider: String
+        get() = prefs.getString(KEY_VOICE_PROVIDER, GeminiConstants.VOICE_PROVIDER_GEMINI)
+            ?: GeminiConstants.VOICE_PROVIDER_GEMINI
+        set(value) = prefs.edit().putString(KEY_VOICE_PROVIDER, value).apply()
+
+    var elevenLabsApiKey: String
+        get() = prefs.getString(KEY_ELEVENLABS_API_KEY, "") ?: ""
+        set(value) = prefs.edit().putString(KEY_ELEVENLABS_API_KEY, value.trim()).apply()
+
+    var elevenLabsVoiceId: String
+        get() = prefs.getString(KEY_ELEVENLABS_VOICE_ID, "") ?: ""
+        set(value) = prefs.edit().putString(KEY_ELEVENLABS_VOICE_ID, value.trim()).apply()
+
+    var elevenLabsProxyUrl: String
+        get() = prefs.getString(KEY_ELEVENLABS_PROXY_URL, "") ?: ""
+        set(value) = prefs.edit().putString(KEY_ELEVENLABS_PROXY_URL, value.trim().trimEnd('/')).apply()
 
     var personality: String
         get() = prefs.getString(KEY_PERSONALITY, GeminiConstants.PERSONALITY_ASSISTANT)

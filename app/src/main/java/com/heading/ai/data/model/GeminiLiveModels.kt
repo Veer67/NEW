@@ -3,6 +3,9 @@ package com.heading.ai.data.model
 import com.google.gson.annotations.SerializedName
 
 object GeminiConstants {
+    const val VOICE_PROVIDER_GEMINI = "Gemini Live"
+    const val VOICE_PROVIDER_ELEVENLABS = "ElevenLabs"
+    val SUPPORTED_VOICE_PROVIDERS = listOf(VOICE_PROVIDER_GEMINI, VOICE_PROVIDER_ELEVENLABS)
     const val DEFAULT_MODEL = "models/gemini-3.8-live"
 
     val SUPPORTED_MODELS = listOf(
